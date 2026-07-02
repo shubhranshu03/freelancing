@@ -11,7 +11,7 @@ function AnimatedWords({ text, className }: { text: string; className?: string }
     return (
         <p ref={ref} className={className}>
             {words.map((word, i) => {
-                const isHighlight = word.toLowerCase().includes('development') || word.toLowerCase().includes('applications');
+                const isHighlight = word.toLowerCase().includes('development') || word.toLowerCase().includes('applications') || word.toLowerCase().includes('webstudio');
                 return (
                     <span key={i} className="inline-block">
                         <motion.span
@@ -117,7 +117,7 @@ export default function AboutSection() {
                         </span>
 
                         <AnimatedWords
-                            text="We are [Company Name] — a web design and development studio building fast, modern websites and web applications for businesses, startups, and creators."
+                            text="We are WebStudio a web design and development studio building fast, modern websites and web applications for businesses, startups, and creators."
                             className="text-3xl md:text-5xl font-semibold text-white leading-tight"
                         />
 
