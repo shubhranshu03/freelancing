@@ -320,11 +320,30 @@ export default function Home() {
           .hero-cta { padding: 11px 20px; font-size: 13px; }
           .cta-arrow { width: 22px; height: 22px; }
           .marquee-section { margin-top: 24px; }
-          .marquee-card { width: 220px; border-radius: 12px; }
-          .mq-img-wrap { height: 140px; }
-          .mq-chrome { height: 24px; }
-          .mq-dot { width: 6px; height: 6px; }
-          .marquee-track { gap: 10px; }
+          .marquee-card { width: 200px; border-radius: 12px; }
+          .mq-img-wrap { height: 120px; }
+          .mq-chrome { height: 22px; padding: 0 8px; }
+          .mq-dot { width: 5px; height: 5px; }
+          .mq-bar { height: 12px; margin: 0 6px; }
+          .marquee-track { gap: 8px; }
+          .mq-badge { font-size: 10px; padding: 3px 8px; bottom: 8px; right: 10px; }
+        }
+
+        /* ── EXTRA SMALL MOBILE (max-width: 430px) ── */
+        @media (max-width: 430px) {
+          .hero-content { padding: 0 12px; padding-top: 100px; }
+          .hero-h1 { font-size: clamp(1.6rem, 10vw, 2.4rem); line-height: 1.08; }
+          .hero-sub { font-size: 12px; line-height: 1.55; margin-bottom: 24px; }
+          .hero-cta { padding: 10px 18px; font-size: 12px; }
+          .cta-arrow { width: 20px; height: 20px; }
+          .marquee-section { margin-top: 20px; }
+          .marquee-card { width: 180px; border-radius: 10px; }
+          .mq-img-wrap { height: 110px; }
+          .mq-chrome { height: 20px; padding: 0 6px; }
+          .mq-dot { width: 4px; height: 4px; }
+          .mq-bar { height: 10px; margin: 0 5px; }
+          .marquee-track { gap: 6px; }
+          .mq-badge { font-size: 9px; padding: 2px 6px; bottom: 6px; right: 8px; }
         }
       `}</style>
 

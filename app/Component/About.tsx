@@ -42,12 +42,12 @@ export default function AboutSection() {
             <style>{`
                 .about-section {
                     position: relative;
-                    min-height: 60vh;
+                    min-height: 40vh;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    padding-bottom: 60px;
-                    padding-top: 60px;
+                    padding-bottom: 30px;
+                    padding-top: 30px;
                     z-index: 10;
                 }
                 .about-content {
@@ -57,7 +57,7 @@ export default function AboutSection() {
                     margin: 0 auto;
                     display: flex;
                     flex-direction: column;
-                    gap: 48px;
+                    gap: 24px;
                 }
                 .about-text {
                     max-width: 800px;
@@ -73,12 +73,18 @@ export default function AboutSection() {
                         flex-direction: row;
                         align-items: center;
                         justify-content: space-between;
+                        gap: 30px;
                     }
                 }
                 @media (max-width: 1024px) {
+                    .about-section {
+                        min-height: auto;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
                     .about-content {
-                        padding: 0 30px;
-                        gap: 36px;
+                        padding: 0 20px;
+                        gap: 16px;
                     }
                     .about-text {
                         max-width: 100%;
@@ -89,23 +95,33 @@ export default function AboutSection() {
                 }
                 @media (max-width: 768px) {
                     .about-section {
-                        min-height: auto;
-                        padding-top: 40px;
-                        padding-bottom: 40px;
+                        padding-top: 16px;
+                        padding-bottom: 16px;
                     }
                     .about-content {
-                        padding: 0 20px;
-                        gap: 32px;
+                        padding: 0 16px;
+                        gap: 12px;
                     }
                 }
                 @media (max-width: 480px) {
                     .about-section {
-                        padding-top: 30px;
-                        padding-bottom: 30px;
+                        padding-top: 12px;
+                        padding-bottom: 12px;
                     }
                     .about-content {
                         padding: 0 16px;
-                        gap: 24px;
+                        gap: 10px;
+                    }
+                }
+                @media (max-width: 430px) {
+                    .about-section {
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        min-height: auto;
+                    }
+                    .about-content {
+                        padding: 0 12px;
+                        gap: 6px;
                     }
                 }
             `}</style>
@@ -121,7 +137,7 @@ export default function AboutSection() {
                             className="text-3xl md:text-5xl font-semibold text-white leading-tight"
                         />
 
-                        <div className="h-10" />
+                        <div className="h-2 md:h-4" />
 
                         <AnimatedWords
                             text="We don't just design pretty pages; we build products that actually work — from idea to deployment."
