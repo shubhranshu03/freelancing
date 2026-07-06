@@ -5,6 +5,7 @@ import Services from "./Component/Services";
 import ScrollTextSection from "./Component/ScrollTextSection";
 import FramerHorizontalScroll from "./Component/FramerHorizontalScroll";
 import BookCallModal from "./Component/BookCallModal";
+import Footer from "./Component/Footer";
 
 export default function Page() {
   return (
@@ -19,6 +20,7 @@ export default function Page() {
         <Services />
         <ScrollTextSection />
         <FramerHorizontalScroll />
+        <Footer />
       </div>
       <BookCallModal />
     </main>

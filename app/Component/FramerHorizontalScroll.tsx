@@ -1,127 +1,12 @@
 'use client';
-import {
-  type MotionProps,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
-
-// * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
-import { useEffect, useRef, useState } from 'react';
-
-export function throttle(fn: (...args: any[]) => any, wait: number) {
-  let shouldWait = false;
-
-  return function throttledFunction(this: any, ...args: any[]) {
-    if (!shouldWait) {
-      fn.apply(this, args);
-      shouldWait = true;
-      setTimeout(() => (shouldWait = false), wait);
-    }
-  };
-}
-export const items = [
-  { id: 1, url: '/w1.jpg' },
-  { id: 2, url: '/w2.jpg' },
-  { id: 3, url: '/w3.jpg' },
-  { id: 4, url: '/w4.jpg' },
-  { id: 5, url: '/w5.jpg' },
-  { id: 6, url: '/w6.jpg' },
-  { id: 7, url: '/w7.jpg' },
-  { id: 8, url: '/w8.jpg' },
-  { id: 9, url: '/w9.jpg' },
-  { id: 10, url: '/w10.jpg' },
-  { id: 11, url: '/w11.jpg' },
-  { id: 12, url: '/w12.jpg' },
-  { id: 13, url: '/w13.jpg' },
-  { id: 14, url: '/w14.jpg' },
-  { id: 15, url: '/w15.jpg' },
-  { id: 16, url: '/w16.jpg' },
-  { id: 20, url: '/20.jpg' },
-  { id: 21, url: '/21.jpg' },
-  { id: 22, url: '/22.jpg' },
-  { id: 23, url: '/23.jpg' },
-  { id: 24, url: '/24.jpg' },
-  { id: 25, url: '/25.jpg' },
-  { id: 26, url: '/26.jpg' },
-];
-
-// * based on: https://gist.github.com/coleturner/34396fb826c12fbd88d6591173d178c2
-function useElementViewportPosition(ref: React.RefObject<HTMLElement | null>) {
-  const [position, setPosition] = useState<[number, number]>([0, 0]);
-
-  useEffect(() => {
-    if (!ref || !ref.current) return;
-
-    const pageHeight = document.body.scrollHeight;
-    const start = ref.current.offsetTop;
-    const end = start + ref.current.offsetHeight;
-
-    setPosition([start / pageHeight, end / pageHeight]);
-  }, []);
-
-  return { position };
-}
-
-const slideAnimation: MotionProps = {
-  variants: {
-    full: { backgroundColor: '#008299' },
-    partial: { backgroundColor: '#ffffff' },
-  },
-  initial: 'partial',
-  whileInView: 'full',
-  viewport: { amount: 1, once: false },
-};
+import React from 'react';
 
 export default function FramerHorizontalScroll() {
-  const mainRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const { position } = useElementViewportPosition(mainRef);
-  //   const { ref, start, end } = useRefScrollProgress(mainRef)
-  const [carouselEndPosition, setCarouselEndPosition] = useState(0);
-  const { scrollYProgress, scrollY } = useScroll();
-  const x = useTransform(scrollYProgress, position, [0, carouselEndPosition]);
-
-  console.log(carouselEndPosition);
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    console.log('Page scroll: ', latest);
-  });
-  useEffect(() => {
-    window.addEventListener('scroll', () => console.log(carouselEndPosition));
-  }, []);
-
-  useEffect(() => {
-    if (!carouselRef || !carouselRef.current) return;
-    const parent = carouselRef.current.parentElement;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-
-    const resetCarouselEndPosition = () => {
-      if (carouselRef && carouselRef.current) {
-        const newPosition =
-          carouselRef.current.clientWidth -
-          window.innerWidth +
-          scrollbarWidth +
-          (parent as HTMLElement).offsetLeft * 2;
-
-        setCarouselEndPosition(-newPosition);
-      }
-    };
-
-    resetCarouselEndPosition();
-    const handleResize = throttle(resetCarouselEndPosition, 10);
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <>
       <style>{`
-        .hz-scroll-cards {
-          height: 300px;
-          width: 300px;
-          overflow: hidden;
+        .hz-footer-wrap {
+          padding: 80px 0 0;
         }
         .hz-footer-title {
           font-size: 16vw;
@@ -134,6 +19,7 @@ export default function FramerHorizontalScroll() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           transition: all 0.5s ease-out;
+          margin-bottom: 80px;
         }
         .hz-footer-curved {
           background: black;
@@ -146,6 +32,8 @@ export default function FramerHorizontalScroll() {
           justify-content: center;
           border-top-left-radius: 100%;
           border-top-right-radius: 100%;
+          padding: 100px 20px 60px;
+          min-height: 200px;
         }
         .hz-footer-btn {
           padding: 20px 40px;
@@ -163,58 +51,151 @@ export default function FramerHorizontalScroll() {
         }
         .hz-footer-btn:hover {
           transform: scale(1.05);
+          box-shadow: 0 0 50px -5px rgba(184,255,87,0.7);
+        }
+
+        /* Comprehensive Mobile Responsive */
+        @media (min-width: 1200px) {
+          .hz-footer-wrap { padding: 100px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(8rem, 14vw, 12rem); 
+            margin-bottom: 100px;
+          }
+          .hz-footer-curved { 
+            padding: 120px 40px 80px;
+            min-height: 240px;
+          }
+          .hz-footer-btn { 
+            padding: 24px 48px; 
+            font-size: 16px; 
+          }
         }
 
         @media (max-width: 1024px) {
-          .hz-scroll-cards { height: 260px; width: 260px; }
-        }
-        @media (max-width: 768px) {
-          .hz-scroll-cards { height: 220px; width: 220px; }
-          .hz-footer-curved { height: 140px; border-top-left-radius: 60%; border-top-right-radius: 60%; }
-          .hz-footer-btn { padding: 16px 32px; font-size: 13px; }
-          .hz-footer-title {
-            font-size: 14vw;
-            transform: translateY(0) !important;
-            margin-bottom: -20px;
+          .hz-footer-wrap { padding: 70px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(6rem, 15vw, 10rem);
+            margin-bottom: 70px;
+          }
+          .hz-footer-curved { 
+            padding: 90px 30px 50px;
+            border-top-left-radius: 80%;
+            border-top-right-radius: 80%;
+            min-height: 180px;
+          }
+          .hz-footer-btn { 
+            padding: 18px 36px; 
+            font-size: 13px; 
           }
         }
+
+        @media (max-width: 768px) {
+          .hz-footer-wrap { padding: 60px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(4rem, 16vw, 8rem);
+            margin-bottom: 60px;
+          }
+          .hz-footer-curved { 
+            padding: 80px 20px 50px;
+            border-top-left-radius: 60%; 
+            border-top-right-radius: 60%;
+            min-height: 160px;
+          }
+          .hz-footer-btn { 
+            padding: 16px 32px; 
+            font-size: 13px; 
+          }
+        }
+
+        @media (max-width: 640px) {
+          .hz-footer-wrap { padding: 50px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(3rem, 18vw, 6rem);
+            margin-bottom: 50px;
+          }
+          .hz-footer-curved { 
+            padding: 60px 18px 40px;
+            min-height: 140px;
+          }
+          .hz-footer-btn { 
+            padding: 14px 28px; 
+            font-size: 12px; 
+          }
+        }
+
         @media (max-width: 480px) {
-          .hz-scroll-cards { height: 180px; width: 180px; }
-          .hz-footer-curved { height: 100px; border-top-left-radius: 50%; border-top-right-radius: 50%; }
-          .hz-footer-btn { padding: 14px 28px; font-size: 12px; }
-          .hz-footer-title {
-            font-size: 16vw;
-            margin-bottom: -16px;
+          .hz-footer-wrap { padding: 40px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(2.5rem, 20vw, 5rem);
+            margin-bottom: 40px;
+          }
+          .hz-footer-curved { 
+            padding: 60px 16px 40px;
+            border-top-left-radius: 50%; 
+            border-top-right-radius: 50%;
+            min-height: 120px;
+          }
+          .hz-footer-btn { 
+            padding: 14px 28px; 
+            font-size: 12px; 
+          }
+        }
+
+        @media (max-width: 430px) {
+          .hz-footer-wrap { padding: 35px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(2rem, 22vw, 4rem);
+            margin-bottom: 35px;
+          }
+          .hz-footer-curved { 
+            padding: 50px 14px 35px;
+            min-height: 110px;
+          }
+          .hz-footer-btn { 
+            padding: 12px 24px; 
+            font-size: 11px; 
+          }
+        }
+
+        @media (max-width: 375px) {
+          .hz-footer-wrap { padding: 30px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(1.8rem, 24vw, 3.5rem);
+            margin-bottom: 30px;
+          }
+          .hz-footer-curved { 
+            padding: 45px 12px 30px;
+            min-height: 100px;
+          }
+          .hz-footer-btn { 
+            padding: 11px 22px; 
+            font-size: 10px; 
+          }
+        }
+
+        @media (max-width: 320px) {
+          .hz-footer-wrap { padding: 25px 0 0; }
+          .hz-footer-title { 
+            font-size: clamp(1.5rem, 26vw, 3rem);
+            margin-bottom: 25px;
+          }
+          .hz-footer-curved { 
+            padding: 40px 10px 25px;
+            min-height: 90px;
+          }
+          .hz-footer-btn { 
+            padding: 10px 20px; 
+            font-size: 9px; 
+            letter-spacing: 0.05em;
           }
         }
       `}</style>
-      <section ref={mainRef}>
-        <div className='w-full mx-auto' style={{ height: '300vh' }}>
-          <div className='sticky top-0 h-screen w-full flex flex-col items-start justify-center overflow-hidden'>
-            <motion.div ref={carouselRef} className='flex gap-5 md:gap-10' style={{ x }}>
-              {items.map((item, index) => (
-                <motion.div
-                  {...slideAnimation}
-                  key={item.id}
-                  className='hz-scroll-cards group relative overflow-hidden bg-muted'
-                >
-                  <motion.img
-                    key={item.id}
-                    className='w-full shrink-0 h-full object-cover'
-                    src={item?.url}
-                    alt={'img'}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      
       <footer className='hz-footer-wrap group relative mt-16 md:mt-32 overflow-visible pb-0'>
-        <h1 className='hz-footer-title group-hover:translate-y-4 translate-y-10 md:translate-y-20 transition-all duration-500 ease-out'>
+        <h1 className='hz-footer-title'>
           .webstudio
         </h1>
-        <section className='hz-footer-curved h-36 md:h-48'>
+        <section className='hz-footer-curved'>
           <button
             className='hz-footer-btn'
             onClick={() => window.dispatchEvent(new CustomEvent("open-book-modal"))}

@@ -31,21 +31,51 @@ export default function ScrollTextSection() {
           justify-content: flex-end;
           text-align: right;
         }
-        @media (max-width: 1024px) {
-          .scroll-text-wrapper { padding: 0 30px; }
+        
+        /* Comprehensive Mobile Responsive Design */
+        @media (min-width: 1200px) {
+          .scroll-text-wrapper { padding: 0 60px; }
+          .scroll-text-block { min-height: 50vh; }
         }
+        
+        @media (max-width: 1024px) {
+          .scroll-text-wrapper { padding: 0 40px; }
+          .scroll-text-block { min-height: 35vh; }
+        }
+        
         @media (max-width: 768px) {
-          .scroll-text-wrapper { padding: 0 20px; }
+          .scroll-text-wrapper { padding: 0 30px; }
           .scroll-text-block { min-height: 30vh; }
         }
+        
+        @media (max-width: 640px) {
+          .scroll-text-wrapper { padding: 0 25px; }
+          .scroll-text-block { min-height: 28vh; }
+        }
+        
         @media (max-width: 480px) {
-          .scroll-text-wrapper { padding: 0 16px; }
+          .scroll-text-wrapper { padding: 0 20px; }
           .scroll-text-block { min-height: 25vh; }
+        }
+        
+        @media (max-width: 430px) {
+          .scroll-text-wrapper { padding: 0 18px; }
+          .scroll-text-block { min-height: 22vh; }
+        }
+        
+        @media (max-width: 375px) {
+          .scroll-text-wrapper { padding: 0 16px; }
+          .scroll-text-block { min-height: 20vh; }
+        }
+        
+        @media (max-width: 320px) {
+          .scroll-text-wrapper { padding: 0 12px; }
+          .scroll-text-block { min-height: 18vh; }
         }
       `}</style>
     <div className="scroll-text-wrapper">
-      {/* Block 1 — centred headline */}
-      <div className="scroll-text-block scroll-text-center">
+      {/* Block 1 — left aligned headline */}
+      <div className="scroll-text-block">
         <TextAnimation
           text="Great "
           variants={{
@@ -136,8 +166,8 @@ export default function ScrollTextSection() {
         />
       </div>
 
-      {/* Block 3 — right aligned, slide from right */}
-      <div className="scroll-text-block scroll-text-right">
+      {/* Block 3 — left aligned, slide from right */}
+      <div className="scroll-text-block">
         <TextAnimation
           text="Fast. Modern. "
           direction="right"
@@ -150,8 +180,8 @@ export default function ScrollTextSection() {
         />
       </div>
 
-      {/* Block 4 — centred, slide from bottom, line by line */}
-      <div className="scroll-text-block scroll-text-center">
+      {/* Block 4 — left aligned, slide from bottom, line by line */}
+      <div className="scroll-text-block">
         <TextAnimation
           text="From idea, "
           direction="down"

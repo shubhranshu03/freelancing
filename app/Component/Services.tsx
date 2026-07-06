@@ -170,28 +170,88 @@ export default function Services() {
           0%   { opacity: 1; transform: scale(1); }
           100% { opacity: 0; transform: scale(1.3); }
         }
-        /* ── TABLET (max-width: 1024px) ── */
-        @media (max-width: 1024px) {
-          .services-section { padding: 60px 30px; }
-          .services-title { margin-bottom: 48px; }
+        /* Comprehensive Mobile Responsive Design */
+        @media (min-width: 1200px) {
+          .services-section { padding: 100px 50px; }
+          .services-title { 
+            font-size: clamp(3rem, 6vw, 5rem); 
+            margin-bottom: 80px; 
+          }
+          .services-grid { gap: 40px 60px; }
+          .service-item { width: 140px; }
+          .service-icon-ring { width: 96px; height: 96px; }
+          .service-icon-ring svg { width: 36px; height: 36px; }
+          .service-name { font-size: 12px; }
         }
-        /* ── SMALL TABLET (max-width: 768px) ── */
+        
+        @media (max-width: 1024px) {
+          .services-section { padding: 80px 40px; }
+          .services-title { margin-bottom: 60px; }
+          .services-grid { gap: 32px 48px; }
+          .service-item { width: 130px; }
+          .service-icon-ring { width: 86px; height: 86px; }
+        }
+        
         @media (max-width: 768px) {
-          .services-section { padding: 50px 20px; }
+          .services-section { padding: 60px 30px; }
+          .services-title { margin-bottom: 50px; }
           .services-grid { gap: 28px 36px; justify-content: center; }
+          .service-item { width: 120px; }
+          .service-icon-ring { width: 80px; height: 80px; }
+          .service-icon-ring svg { width: 30px; height: 30px; }
+          .service-name { font-size: 11px; }
+        }
+        
+        @media (max-width: 640px) {
+          .services-section { padding: 50px 25px; }
+          .services-title { margin-bottom: 45px; }
+          .services-grid { gap: 24px 32px; }
           .service-item { width: 110px; }
           .service-icon-ring { width: 76px; height: 76px; }
-          .services-title { margin-bottom: 40px; }
+          .service-icon-ring svg { width: 28px; height: 28px; }
+          .service-name { font-size: 10.5px; }
         }
-        /* ── MOBILE (max-width: 480px) ── */
+        
         @media (max-width: 480px) {
-          .services-section { padding: 40px 16px; }
-          .services-grid { gap: 20px 24px; justify-content: center; }
+          .services-section { padding: 40px 20px; }
+          .services-title { margin-bottom: 40px; }
+          .services-grid { gap: 20px 28px; justify-content: center; }
+          .service-item { width: 100px; }
+          .service-icon-ring { width: 70px; height: 70px; }
+          .service-icon-ring svg { width: 26px; height: 26px; }
+          .service-name { font-size: 10px; }
+        }
+        
+        @media (max-width: 430px) {
+          .services-section { padding: 35px 18px; }
+          .services-title { margin-bottom: 35px; }
+          .services-grid { gap: 18px 24px; }
           .service-item { width: 90px; }
           .service-icon-ring { width: 64px; height: 64px; }
           .service-icon-ring svg { width: 24px; height: 24px; }
-          .service-name { font-size: 10px; }
-          .services-title { margin-bottom: 32px; }
+          .service-name { font-size: 9px; line-height: 1.4; }
+          .services-eyebrow { font-size: 10px; margin-bottom: 12px; }
+        }
+        
+        @media (max-width: 375px) {
+          .services-section { padding: 30px 16px; }
+          .services-title { margin-bottom: 30px; }
+          .services-grid { gap: 16px 20px; }
+          .service-item { width: 85px; }
+          .service-icon-ring { width: 60px; height: 60px; }
+          .service-icon-ring svg { width: 22px; height: 22px; }
+          .service-name { font-size: 8.5px; }
+        }
+        
+        @media (max-width: 320px) {
+          .services-section { padding: 25px 12px; }
+          .services-title { margin-bottom: 25px; }
+          .services-grid { gap: 14px 18px; }
+          .service-item { width: 80px; }
+          .service-icon-ring { width: 56px; height: 56px; }
+          .service-icon-ring svg { width: 20px; height: 20px; }
+          .service-name { font-size: 8px; }
+          .services-eyebrow { font-size: 9px; margin-bottom: 10px; }
         }
       `}</style>
 

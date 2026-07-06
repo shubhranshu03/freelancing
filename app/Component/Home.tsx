@@ -102,12 +102,12 @@ export default function Home() {
         /* ── HERO ── */
         .hero {
           position: relative;
-          min-height: 100vh;
+          min-height: 70vh;
           display: flex;
           flex-direction: column;
           justify-content: center;
           overflow: hidden;
-          padding-bottom: 60px;
+          padding-bottom: 40px;
         }
 
         .hero-content {
