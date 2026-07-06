@@ -42,12 +42,12 @@ export default function AboutSection() {
             <style>{`
                 .about-section {
                     position: relative;
-                    min-height: 40vh;
+                    min-height: 30vh;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    padding-bottom: 30px;
-                    padding-top: 30px;
+                    padding-bottom: 25px;
+                    padding-top: 25px;
                     z-index: 10;
                 }
                 .about-content {
@@ -57,7 +57,7 @@ export default function AboutSection() {
                     margin: 0 auto;
                     display: flex;
                     flex-direction: column;
-                    gap: 24px;
+                    gap: 20px;
                 }
                 .about-text {
                     max-width: 800px;
@@ -93,35 +93,49 @@ export default function AboutSection() {
                         max-width: 100%;
                     }
                 }
+                .about-heading {
+                    font-size: clamp(1.6rem, 5vw, 3rem);
+                    font-weight: 600;
+                    color: #fff;
+                    line-height: 1.25;
+                }
+                .about-subheading {
+                    font-size: clamp(1rem, 3vw, 1.5rem);
+                    font-weight: 500;
+                    color: #9ca3af;
+                    line-height: 1.4;
+                }
                 @media (max-width: 768px) {
                     .about-section {
-                        padding-top: 16px;
-                        padding-bottom: 16px;
+                        padding-top: 18px;
+                        padding-bottom: 18px;
+                        min-height: 25vh;
+                    }
+                    .about-content {
+                        padding: 0 20px;
+                        gap: 14px;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .about-section {
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        min-height: auto;
                     }
                     .about-content {
                         padding: 0 16px;
                         gap: 12px;
                     }
                 }
-                @media (max-width: 480px) {
-                    .about-section {
-                        padding-top: 12px;
-                        padding-bottom: 12px;
-                    }
-                    .about-content {
-                        padding: 0 16px;
-                        gap: 10px;
-                    }
-                }
                 @media (max-width: 430px) {
                     .about-section {
-                        padding-top: 8px;
-                        padding-bottom: 8px;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
                         min-height: auto;
                     }
                     .about-content {
-                        padding: 0 12px;
-                        gap: 6px;
+                        padding: 0 16px;
+                        gap: 12px;
                     }
                 }
             `}</style>
@@ -134,14 +148,14 @@ export default function AboutSection() {
 
                         <AnimatedWords
                             text="We are WebStudio a web design and development studio building fast, modern websites and web applications for businesses, startups, and creators."
-                            className="text-3xl md:text-5xl font-semibold text-white leading-tight"
+                            className="about-heading"
                         />
 
-                        <div className="h-2 md:h-4" />
+                        <div style={{ height: '12px' }} />
 
                         <AnimatedWords
                             text="We don't just design pretty pages; we build products that actually work — from idea to deployment."
-                            className="text-xl md:text-2xl font-medium text-gray-400 leading-snug"
+                            className="about-subheading"
                         />
                     </div>
                     <div className="about-visual">

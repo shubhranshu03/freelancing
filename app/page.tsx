@@ -14,7 +14,7 @@ export default function Page() {
       {/* All sections below have solid black bg to cover the fixed canvas */}
       <div style={{ position: 'relative', zIndex: 10, background: '#000000' }}>
         <AboutSection />
-        <section style={{ paddingTop: '40px', paddingBottom: '40px' }}>
+        <section style={{ paddingTop: 'clamp(16px, 3vw, 40px)', paddingBottom: 'clamp(16px, 3vw, 40px)' }}>
           <ImageReveal2 />
         </section>
         <Services />

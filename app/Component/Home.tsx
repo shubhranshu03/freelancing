@@ -72,6 +72,12 @@ export default function Home() {
           left: 50%;
           transform: translateX(-50%);
         }
+        @media (max-width: 768px) {
+          .nav-logo {
+            position: static;
+            transform: none;
+          }
+        }
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .nav-collab {
           font-family: 'Inter', sans-serif;
@@ -279,28 +285,19 @@ export default function Home() {
 
         /* ── SMALL TABLET / LARGE PHONE (max-width: 768px) ── */
         @media (max-width: 768px) {
-          .nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
-          .nav-logo {
-            position: static;
-            transform: none;
-            order: -1;
-            width: 100%;
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 4px;
-          }
-          .nav-left { justify-content: center; width: 100%; }
-          .nav-right { justify-content: center; width: 100%; gap: 14px; }
-          .nav-collab { font-size: 12px; }
+          .page-wrap { min-height: auto; }
+          .nav { padding: 14px 20px; }
+          .nav-logo { font-size: 20px; }
+          .nav-collab { display: none; }
+          .nav-left { display: none; }
+          .nav-right { gap: 12px; }
           .nav-book { font-size: 12px; padding: 7px 16px; }
-          .nav-pill { font-size: 12px; padding: 6px 14px; }
-          .hero { min-height: auto; padding-bottom: 40px; }
-          .hero-content { padding: 0 20px; padding-top: 140px; }
-          .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 18px; }
+          .hero { min-height: auto; padding-bottom: 24px; }
+          .hero-content { padding: 0 20px; padding-top: 90px; }
+          .hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 16px; }
           .hero-sub { font-size: 14px; max-width: 100%; margin-bottom: 28px; }
           .hero-cta { padding: 12px 22px; font-size: 14px; }
-          .cta-arrow { width: 24px; height: 24px; }
-          .marquee-section { margin-top: 32px; }
+          .marquee-section { margin-top: 28px; }
           .marquee-card { width: 260px; }
           .mq-img-wrap { height: 160px; }
           .marquee-track { gap: 12px; }
@@ -308,14 +305,16 @@ export default function Home() {
 
         /* ── MOBILE (max-width: 480px) ── */
         @media (max-width: 480px) {
-          .nav { padding: 14px 16px; gap: 8px; }
+          .page-wrap { min-height: auto; }
+          .nav { padding: 14px 16px; }
           .nav-logo { font-size: 18px; }
           .nav-left { display: none; }
+          .nav-collab { display: none; }
           .nav-right { gap: 10px; }
-          .nav-collab { font-size: 11px; }
-          .nav-book { font-size: 11px; padding: 6px 14px; }
-          .hero-content { padding: 0 16px; padding-top: 110px; }
-          .hero-h1 { font-size: clamp(1.8rem, 9vw, 2.8rem); line-height: 1.1; }
+          .nav-book { font-size: 12px; padding: 7px 16px; }
+          .hero { min-height: auto; padding-bottom: 20px; }
+          .hero-content { padding: 0 16px; padding-top: 80px; }
+          .hero-h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); line-height: 1.1; }
           .hero-sub { font-size: 13px; line-height: 1.6; }
           .hero-cta { padding: 11px 20px; font-size: 13px; }
           .cta-arrow { width: 22px; height: 22px; }
@@ -331,9 +330,11 @@ export default function Home() {
 
         /* ── EXTRA SMALL MOBILE (max-width: 430px) ── */
         @media (max-width: 430px) {
-          .hero-content { padding: 0 12px; padding-top: 100px; }
-          .hero-h1 { font-size: clamp(1.6rem, 10vw, 2.4rem); line-height: 1.08; }
-          .hero-sub { font-size: 12px; line-height: 1.55; margin-bottom: 24px; }
+          .page-wrap { min-height: auto; }
+          .hero { min-height: auto; padding-bottom: 16px; }
+          .hero-content { padding: 0 14px; padding-top: 75px; }
+          .hero-h1 { font-size: clamp(1.7rem, 10vw, 2.4rem); line-height: 1.08; }
+          .hero-sub { font-size: 12px; line-height: 1.55; margin-bottom: 20px; }
           .hero-cta { padding: 10px 18px; font-size: 12px; }
           .cta-arrow { width: 20px; height: 20px; }
           .marquee-section { margin-top: 20px; }

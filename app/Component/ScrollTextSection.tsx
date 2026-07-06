@@ -31,45 +31,40 @@ export default function ScrollTextSection() {
           justify-content: flex-end;
           text-align: right;
         }
-        
-        /* Comprehensive Mobile Responsive Design */
-        @media (min-width: 1200px) {
-          .scroll-text-wrapper { padding: 0 60px; }
-          .scroll-text-block { min-height: 50vh; }
+
+        /* Single responsive heading class using clamp — no Tailwind needed */
+        .scroll-heading {
+          font-size: clamp(2rem, 7vw, 5rem);
+          font-weight: 700;
+          line-height: 1.1;
+          display: inline;
         }
-        
+        .scroll-heading-accent {
+          font-size: clamp(2rem, 7vw, 5rem);
+          font-weight: 700;
+          line-height: 1.1;
+          color: #b8ff57;
+          display: inline;
+        }
+
         @media (max-width: 1024px) {
           .scroll-text-wrapper { padding: 0 40px; }
           .scroll-text-block { min-height: 35vh; }
         }
-        
         @media (max-width: 768px) {
-          .scroll-text-wrapper { padding: 0 30px; }
-          .scroll-text-block { min-height: 30vh; }
-        }
-        
-        @media (max-width: 640px) {
-          .scroll-text-wrapper { padding: 0 25px; }
+          .scroll-text-wrapper { padding: 0 28px; }
           .scroll-text-block { min-height: 28vh; }
         }
-        
         @media (max-width: 480px) {
           .scroll-text-wrapper { padding: 0 20px; }
-          .scroll-text-block { min-height: 25vh; }
-        }
-        
-        @media (max-width: 430px) {
-          .scroll-text-wrapper { padding: 0 18px; }
           .scroll-text-block { min-height: 22vh; }
         }
-        
-        @media (max-width: 375px) {
+        @media (max-width: 430px) {
           .scroll-text-wrapper { padding: 0 16px; }
           .scroll-text-block { min-height: 20vh; }
         }
-        
-        @media (max-width: 320px) {
-          .scroll-text-wrapper { padding: 0 12px; }
+        @media (max-width: 375px) {
+          .scroll-text-wrapper { padding: 0 14px; }
           .scroll-text-block { min-height: 18vh; }
         }
       `}</style>
@@ -87,7 +82,7 @@ export default function ScrollTextSection() {
               transition: { ease: 'easeOut', duration: 0.6 },
             },
           }}
-          classname="text-4xl md:text-5xl xl:text-7xl font-bold capitalize"
+          classname="scroll-heading"
         />
         <TextAnimation
           text="websites "
@@ -100,7 +95,7 @@ export default function ScrollTextSection() {
               transition: { ease: 'easeOut', duration: 0.6 },
             },
           }}
-          classname="text-4xl md:text-5xl xl:text-7xl font-bold capitalize text-[#b8ff57]"
+          classname="scroll-heading-accent"
         />
         <TextAnimation
           text="start here."
@@ -113,7 +108,7 @@ export default function ScrollTextSection() {
               transition: { ease: 'easeOut', duration: 0.6 },
             },
           }}
-          classname="text-4xl md:text-5xl xl:text-7xl font-bold capitalize"
+          classname="scroll-heading"
         />
       </div>
 
@@ -123,7 +118,7 @@ export default function ScrollTextSection() {
           as="p"
           letterAnime={true}
           text="Let's build "
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold lowercase"
+          classname="scroll-heading"
           variants={{
             hidden: { filter: 'blur(4px)', opacity: 0, y: 20 },
             visible: {
@@ -138,7 +133,7 @@ export default function ScrollTextSection() {
           as="p"
           letterAnime={true}
           text="something "
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold lowercase text-[#b8ff57]"
+          classname="scroll-heading-accent"
           variants={{
             hidden: { filter: 'blur(4px)', opacity: 0, y: 20 },
             visible: {
@@ -153,7 +148,7 @@ export default function ScrollTextSection() {
           as="p"
           letterAnime={true}
           text="brilliant."
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold lowercase"
+          classname="scroll-heading"
           variants={{
             hidden: { filter: 'blur(4px)', opacity: 0, y: 20 },
             visible: {
@@ -171,12 +166,12 @@ export default function ScrollTextSection() {
         <TextAnimation
           text="Fast. Modern. "
           direction="right"
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold capitalize"
+          classname="scroll-heading"
         />
         <TextAnimation
           text="Conversion‑focused."
           direction="right"
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold capitalize text-[#b8ff57]"
+          classname="scroll-heading-accent"
         />
       </div>
 
@@ -185,17 +180,17 @@ export default function ScrollTextSection() {
         <TextAnimation
           text="From idea, "
           direction="down"
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold capitalize"
+          classname="scroll-heading"
         />
         <TextAnimation
           text="to design, "
           direction="down"
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold capitalize"
+          classname="scroll-heading"
         />
         <TextAnimation
           text="to deployment"
           direction="down"
-          classname="text-4xl md:text-6xl xl:text-7xl font-bold capitalize text-[#b8ff57]"
+          classname="scroll-heading-accent"
         />
       </div>
     </div>
