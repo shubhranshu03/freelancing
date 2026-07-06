@@ -32,7 +32,7 @@ export default function FramerHorizontalScroll() {
           justify-content: center;
           border-top-left-radius: 100%;
           border-top-right-radius: 100%;
-          padding: 100px 20px 60px;
+          padding: 100px 20px 0;
           min-height: 200px;
         }
         .hz-footer-btn {
@@ -78,7 +78,7 @@ export default function FramerHorizontalScroll() {
             margin-bottom: 70px;
           }
           .hz-footer-curved { 
-            padding: 90px 30px 50px;
+            padding: 90px 30px 0;
             border-top-left-radius: 80%;
             border-top-right-radius: 80%;
             min-height: 180px;
@@ -96,7 +96,7 @@ export default function FramerHorizontalScroll() {
             margin-bottom: 60px;
           }
           .hz-footer-curved { 
-            padding: 80px 20px 50px;
+            padding: 80px 20px 0;
             border-top-left-radius: 60%; 
             border-top-right-radius: 60%;
             min-height: 160px;
@@ -114,7 +114,7 @@ export default function FramerHorizontalScroll() {
             margin-bottom: 50px;
           }
           .hz-footer-curved { 
-            padding: 60px 18px 40px;
+            padding: 60px 18px 0;
             min-height: 140px;
           }
           .hz-footer-btn { 
@@ -130,7 +130,7 @@ export default function FramerHorizontalScroll() {
             margin-bottom: 40px;
           }
           .hz-footer-curved { 
-            padding: 60px 16px 40px;
+            padding: 60px 16px 0;
             border-top-left-radius: 50%; 
             border-top-right-radius: 50%;
             min-height: 120px;
@@ -148,7 +148,7 @@ export default function FramerHorizontalScroll() {
             margin-bottom: 35px;
           }
           .hz-footer-curved { 
-            padding: 50px 14px 35px;
+            padding: 50px 14px 0;
             min-height: 110px;
           }
           .hz-footer-btn { 
@@ -191,7 +191,7 @@ export default function FramerHorizontalScroll() {
         }
       `}</style>
       
-      <footer className='hz-footer-wrap group relative mt-16 md:mt-32 overflow-visible pb-0'>
+      <footer className='hz-footer-wrap group relative overflow-visible pb-0'>
         <h1 className='hz-footer-title'>
           .webstudio
         </h1>
