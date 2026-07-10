@@ -6,6 +6,7 @@ import ScrollTextSection from "./Component/ScrollTextSection";
 import FramerHorizontalScroll from "./Component/FramerHorizontalScroll";
 import BookCallModal from "./Component/BookCallModal";
 import Footer from "./Component/Footer";
+import WebFeatures from "./Component/WebFeatures";
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
           <ImageReveal2 />
         </section>
         <Services />
+        <WebFeatures />
         <ScrollTextSection />
         <FramerHorizontalScroll />
         <Footer />
