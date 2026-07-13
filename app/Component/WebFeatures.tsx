@@ -256,10 +256,13 @@ export const WebFeatures = () => {
         
         .web-features-section {
           background: #000;
-          padding: 80px 16px;
+          padding: 80px 0;
           font-family: 'Inter', sans-serif;
           position: relative;
           z-index: 10;
+          width: 100%;
+          overflow-x: hidden;
+          box-sizing: border-box;
         }
         
         .web-features-container {
@@ -269,6 +272,9 @@ export const WebFeatures = () => {
           border-radius: 24px;
           padding: 48px;
           border: 1px solid rgba(255, 255, 255, 0.05);
+          width: calc(100% - 32px);
+          max-width: calc(100% - 32px);
+          box-sizing: border-box;
         }
         
         .web-features-header {
@@ -339,22 +345,105 @@ export const WebFeatures = () => {
         }
         
         @media (max-width: 768px) {
-          .web-features-section { padding: 60px 20px; }
-          .web-features-container { padding: 32px 24px; }
-          .web-features-header { margin-bottom: 48px; }
-          .web-features-grid { gap: 24px; }
+          .web-features-section { 
+            padding: 60px 16px; 
+          }
+          .web-features-container { 
+            padding: 24px 16px; 
+            width: calc(100% - 32px);
+            margin: 0 16px;
+          }
+          .web-features-header { margin-bottom: 40px; }
+          .web-features-grid { gap: 20px; }
         }
         
         @media (max-width: 480px) {
-          .web-features-section { padding: 40px 16px; }
-          .web-features-container { 
-            padding: 24px 16px; 
-            border-radius: 16px;
+          .web-features-section { 
+            padding: 40px 12px; 
           }
-          .web-features-header { margin-bottom: 32px; gap: 24px; }
+          .web-features-container { 
+            padding: 20px 12px; 
+            border-radius: 16px;
+            width: calc(100% - 24px);
+            margin: 0 12px;
+          }
+          .web-features-header { 
+            margin-bottom: 28px; 
+            gap: 20px; 
+          }
           .web-features-grid { 
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 16px;
+          }
+          .web-features-title {
+            font-size: clamp(1.8rem, 8vw, 2.5rem);
+          }
+          .web-features-subtitle {
+            font-size: 1rem;
+          }
+        }
+        
+        @media (max-width: 430px) {
+          .web-features-section { 
+            padding: 30px 8px; 
+          }
+          .web-features-container { 
+            padding: 16px 8px; 
+            border-radius: 12px;
+            width: calc(100% - 16px);
+            margin: 0 8px;
+          }
+          .web-features-header { 
+            margin-bottom: 24px; 
+            gap: 16px; 
+          }
+          .web-features-title {
+            font-size: clamp(1.5rem, 9vw, 2.2rem);
+          }
+          .web-features-subtitle {
+            font-size: 0.9rem;
+          }
+          .web-features-cta {
+            padding: 12px 24px;
+            font-size: 14px;
+          }
+        }
+        
+        @media (max-width: 375px) {
+          .web-features-section { 
+            padding: 25px 6px; 
+          }
+          .web-features-container { 
+            padding: 14px 6px; 
+            width: calc(100% - 12px);
+            margin: 0 6px;
+          }
+          .web-features-title {
+            font-size: clamp(1.3rem, 10vw, 2rem);
+          }
+          .web-features-subtitle {
+            font-size: 0.85rem;
+          }
+        }
+        
+        @media (max-width: 320px) {
+          .web-features-section { 
+            padding: 20px 4px; 
+          }
+          .web-features-container { 
+            padding: 12px 4px; 
+            width: calc(100% - 8px);
+            margin: 0 4px;
+          }
+          .web-features-title {
+            font-size: clamp(1.2rem, 11vw, 1.8rem);
+          }
+          .web-features-subtitle {
+            font-size: 0.8rem;
+          }
+          .web-features-cta {
+            padding: 10px 20px;
+            font-size: 13px;
           }
         }
       `}</style>
