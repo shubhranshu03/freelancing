@@ -334,6 +334,8 @@ export const WebFeatures = () => {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 32px;
+          justify-items: center;
+          width: 100%;
         }
         
         /* Mobile Responsive */
@@ -354,7 +356,12 @@ export const WebFeatures = () => {
             margin: 0 16px;
           }
           .web-features-header { margin-bottom: 40px; }
-          .web-features-grid { gap: 20px; }
+          .web-features-grid { 
+            gap: 20px;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            max-width: 100%;
+          }
         }
         
         @media (max-width: 480px) {
@@ -374,6 +381,8 @@ export const WebFeatures = () => {
           .web-features-grid { 
             grid-template-columns: 1fr;
             gap: 16px;
+            justify-items: center;
+            place-items: center;
           }
           .web-features-title {
             font-size: clamp(1.8rem, 8vw, 2.5rem);
@@ -392,10 +401,23 @@ export const WebFeatures = () => {
             border-radius: 12px;
             width: calc(100% - 16px);
             margin: 0 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           .web-features-header { 
             margin-bottom: 24px; 
-            gap: 16px; 
+            gap: 16px;
+            width: 100%;
+            text-align: center;
+          }
+          .web-features-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            justify-items: center;
+            place-items: center;
+            width: 100%;
+            max-width: 350px;
           }
           .web-features-title {
             font-size: clamp(1.5rem, 9vw, 2.2rem);
@@ -417,6 +439,18 @@ export const WebFeatures = () => {
             padding: 14px 6px; 
             width: calc(100% - 12px);
             margin: 0 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .web-features-header {
+            text-align: center;
+            width: 100%;
+          }
+          .web-features-grid {
+            width: 100%;
+            max-width: 320px;
+            justify-items: center;
           }
           .web-features-title {
             font-size: clamp(1.3rem, 10vw, 2rem);
@@ -434,6 +468,18 @@ export const WebFeatures = () => {
             padding: 12px 4px; 
             width: calc(100% - 8px);
             margin: 0 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .web-features-header {
+            text-align: center;
+            width: 100%;
+          }
+          .web-features-grid {
+            width: 100%;
+            max-width: 290px;
+            justify-items: center;
           }
           .web-features-title {
             font-size: clamp(1.2rem, 11vw, 1.8rem);
@@ -469,7 +515,17 @@ export const WebFeatures = () => {
 
           <div className="web-features-grid">
             {features.map((feature, index) => (
-              <div key={index} onClick={() => handleCardClick(index)} style={{ cursor: 'pointer' }}>
+              <div 
+                key={index} 
+                onClick={() => handleCardClick(index)} 
+                style={{ 
+                  cursor: 'pointer',
+                  width: '100%',
+                  maxWidth: '320px',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
                 <WebFeatureCard
                   active={activeCard === index}
                   icon={feature.icon}

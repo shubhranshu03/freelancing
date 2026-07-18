@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: ".webstudio | Premium Web Design & Development",
   description: "We design and develop fast, modern, conversion-focused websites and web applications for startups, businesses, and creators.",
   icons: {
-    icon: "/android-icon-192x192.png",
+    icon: "/favicon1.png",
   },
 };
 
