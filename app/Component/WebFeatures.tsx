@@ -24,6 +24,8 @@ const WebFeatureCard: React.FC<WebFeatureCardProps> = ({
           display: flex;
           flex-direction: column;
           height: 100%;
+          width: 100%;
+          box-sizing: border-box;
           transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
           border: 2px solid;
           position: relative;
@@ -351,14 +353,15 @@ export const WebFeatures = () => {
             padding: 60px 16px; 
           }
           .web-features-container { 
-            padding: 24px 16px; 
-            width: calc(100% - 32px);
-            margin: 0 16px;
+            padding: 32px 24px; 
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
           }
           .web-features-header { margin-bottom: 40px; }
           .web-features-grid { 
             gap: 20px;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             justify-items: center;
             max-width: 100%;
           }
@@ -366,13 +369,14 @@ export const WebFeatures = () => {
         
         @media (max-width: 480px) {
           .web-features-section { 
-            padding: 40px 12px; 
+            padding: 40px 16px; 
           }
           .web-features-container { 
-            padding: 20px 12px; 
+            padding: 24px 16px; 
             border-radius: 16px;
-            width: calc(100% - 24px);
-            margin: 0 12px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
           }
           .web-features-header { 
             margin-bottom: 28px; 
@@ -394,22 +398,22 @@ export const WebFeatures = () => {
         
         @media (max-width: 430px) {
           .web-features-section { 
-            padding: 30px 8px; 
+            padding: 30px 16px; 
           }
           .web-features-container { 
-            padding: 16px 8px; 
+            padding: 20px 16px; 
             border-radius: 12px;
-            width: calc(100% - 16px);
-            margin: 0 8px;
+            width: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
           }
           .web-features-header { 
             margin-bottom: 24px; 
             gap: 16px;
             width: 100%;
-            text-align: center;
+            text-align: left;
           }
           .web-features-grid {
             grid-template-columns: 1fr;
@@ -417,7 +421,7 @@ export const WebFeatures = () => {
             justify-items: center;
             place-items: center;
             width: 100%;
-            max-width: 350px;
+            max-width: 100%;
           }
           .web-features-title {
             font-size: clamp(1.5rem, 9vw, 2.2rem);
@@ -428,28 +432,25 @@ export const WebFeatures = () => {
           .web-features-cta {
             padding: 12px 24px;
             font-size: 14px;
+            align-self: flex-start;
           }
         }
         
         @media (max-width: 375px) {
           .web-features-section { 
-            padding: 25px 6px; 
+            padding: 25px 12px; 
           }
           .web-features-container { 
-            padding: 14px 6px; 
-            width: calc(100% - 12px);
-            margin: 0 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 16px 12px; 
+            width: 100%;
+            margin: 0;
           }
           .web-features-header {
-            text-align: center;
             width: 100%;
           }
           .web-features-grid {
             width: 100%;
-            max-width: 320px;
+            max-width: 100%;
             justify-items: center;
           }
           .web-features-title {
@@ -462,24 +463,12 @@ export const WebFeatures = () => {
         
         @media (max-width: 320px) {
           .web-features-section { 
-            padding: 20px 4px; 
+            padding: 20px 8px; 
           }
           .web-features-container { 
-            padding: 12px 4px; 
-            width: calc(100% - 8px);
-            margin: 0 4px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          .web-features-header {
-            text-align: center;
+            padding: 16px 8px; 
             width: 100%;
-          }
-          .web-features-grid {
-            width: 100%;
-            max-width: 290px;
-            justify-items: center;
+            margin: 0;
           }
           .web-features-title {
             font-size: clamp(1.2rem, 11vw, 1.8rem);
@@ -521,7 +510,6 @@ export const WebFeatures = () => {
                 style={{ 
                   cursor: 'pointer',
                   width: '100%',
-                  maxWidth: '320px',
                   display: 'flex',
                   justifyContent: 'center'
                 }}
